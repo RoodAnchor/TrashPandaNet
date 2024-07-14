@@ -1,0 +1,10 @@
+﻿@model List<TrashPandaNet.Data.Models.Message>
+
+@foreach (var message in Model)
+{
+    var isAuthor = message.Sender.Email == User.Identity.Name;
+
+    <div class="chat-message @(isAuthor ? "push-right": null)">
+        <div class="message-text @(isAuthor ? "author-message": null)">@message.Text</div>
+    </div>
+}

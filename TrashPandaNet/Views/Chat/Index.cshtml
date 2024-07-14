@@ -1,24 +1,19 @@
 ﻿@model ChatViewModel
 
-<meta http-equiv="refresh" content="15">
-
 @section css {
     <link rel="stylesheet" href="~/css/forms.css" />
     <link rel="stylesheet" href="~/css/chat.css" />
+}
+
+@section Scripts {
+    <script type="text/javascript" src="~/js/chat.js"></script>
 }
 
 <h1>Чат с @Model.Recipient.FirstName @Model.Recipient.LastName</h1>
 
 <div class="round-corners">
     <div class="chat-messages">
-        @foreach (var message in Model.Messages)
-        {
-            var isAuthor = message.Sender.Email == User.Identity.Name;
-
-            <div class="chat-message @(isAuthor ? "push-right": null)">
-                <div class="message-text @(isAuthor ? "author-message": null)">@message.Text</div>
-            </div>
-        }
+        <partial name="_Messages" model="Model.Messages">
     </div>
 
     <div class="chat-controls">

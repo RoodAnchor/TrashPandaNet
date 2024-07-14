@@ -43,6 +43,15 @@ namespace TrashPandaNet.Controllers
             return View(model);
         }
 
+        [HttpGet]
+        [Route("GetMessages/{id}")]
+        public async Task<IActionResult> GetMessages(string id)
+        {
+            var model = await GenerateChat(id);
+
+            return PartialView("_Messages", model.Messages);
+        }
+
         [Route("NewMessage")]
         [HttpPost]
         [ValidateAntiForgeryToken]
