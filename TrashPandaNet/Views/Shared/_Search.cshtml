@@ -1,0 +1,11 @@
+﻿@using Microsoft.AspNetCore.Identity;
+@using TrashPandaNet.Data.Models;
+@inject SignInManager<User> SignInManager
+@inject UserManager<User> UserManager
+
+@if (SignInManager.IsSignedIn(User))
+{
+    <button class="button-secondary">
+        <a asp-action="Index" asp-controller="Search">Поиск</a>
+    </button>
+}

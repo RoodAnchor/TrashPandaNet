@@ -1,0 +1,62 @@
+﻿@model TrashPandaNet.Logic.Models.RegisterViewModel
+
+@{
+    var monthList = Html.GetEnumSelectList<TrashPandaNet.Logic.Enums.MonthEnum>();
+    var yearList = Enumerable.Range(
+            DateTime.Now.AddYears(-100).Year, 
+            DateTime.Now.AddYears(-14).Year - DateTime.Now.AddYears(-100).Year)
+        .Reverse()
+        .Select(x => new SelectListItem(x.ToString(), x.ToString()));
+}
+
+<script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.17.0/jquery.validate.min.js"></script>
+<script src="https://ajax.aspnetcdn.com/ajax/jquery.validation.unobtrusive/3.2.10/jquery.validate.unobtrusive.min.js"></script>
+
+<div class="round-corners">
+    <h3 class="center">Впервые с нами?</h3>
+    <p class="center">Регистрация нового пользователя</p>
+    <form method="get" asp-controller="Register" asp-action="RegisterPartTwo">
+        @if (ViewData["ValidationFor"] == "Register")
+        {
+            <div asp-validation-summary="ModelOnly"></div>
+        }
+        <div>
+            <input asp-for="FirstName" placeholder="Имя" required />
+            <span asp-validation-for="FirstName"></span>
+        </div>
+        <div>
+            <input asp-for="LastName" placeholder="Фамилия" required />
+            <span asp-validation-for="LastName"></span>
+        </div>
+        <div>
+            <label>Дата рождения</label>
+            <div class="date-selector">
+                <span style="margin-right: 10px;">
+                    <select asp-for="Date" id="ddlDay" required>
+                        <option value="">@Model.Date</option>
+                    </select>
+                    <span asp-validation-for="Date" class="text-danger"></span>
+                </span>
+                <span style="flex: 1;">
+                    <select asp-for="Month" asp-items="monthList" onchange="PopulateDays()" id="ddlMonth" required>
+                        <option value="">@Model.Month</option>
+                    </select>
+                    <span asp-validation-for="Month" class="text-danger"></span>
+                </span>
+                <span style="margin-left: 10px;">
+                    <select asp-for="Year" asp-items="yearList" onchange="PopulateDays()" id="ddlYear" required>
+                        <option value="">@Model.Year</option>
+                    </select>
+                    <span asp-validation-for="Year" class="text-danger"></span>
+                </span>
+            </div>
+        </div>
+
+        <div>
+            <button class="button-primary" type="submit">Продолжить регистрацию</button>
+        </div>
+    </form>
+</div>
+
+<script src="http://code.jquery.com/jquery-latest.js"></script>
+<script src="/js/datePicker.js"></script>

@@ -1,0 +1,106 @@
+﻿form > div {
+    margin-bottom: 10px;
+}
+
+label {
+    color: lightgray;
+    margin-bottom: 10px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="date"],
+.button-primary,
+.button-secondary {
+    border-radius: 25px;
+    color: white;
+    padding: 10px 20px;
+    background: #010f20a3;
+    width: 100%;
+    outline: none;
+    border: none;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+    filter: invert(100%);
+}
+
+.button-primary {
+    margin-top: 20px;
+    background-color: #ff0068c7;
+}
+
+.button-primary:hover {
+    background-color: #ff0068;
+}
+
+.button-secondary {
+    margin-top: 20px;
+    background-color: #75839b;
+}
+
+.button-secondary:hover {
+    background-color: #ff0068;
+}
+
+.button-primary > a {
+    text-decoration: none;
+    color: white;
+    display: block;
+}
+
+.button-primary > a:hover {
+    color: white;
+}
+
+.button-secondary > a {
+    text-decoration: none;
+    color: white;
+    display: block;
+}
+
+.button-secondary > a:hover {
+    color: white;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus {
+    -webkit-text-fill-color: #ffffff;
+    transition: background-color 5000s ease-in-out 0s;
+    box-shadow: inset 0 0 20px 20px #23232329;
+}
+
+input[type=checkbox] {
+    width: 1.3em;
+    height: 1.3em;
+    background-color: #010f20a3;
+    border-radius: 50%;
+    vertical-align: middle;
+    appearance: none;
+    -webkit-appearance: none;
+    outline: none;
+    cursor: pointer;
+}
+
+input[type=checkbox]:checked {
+    background-color: #ff0079;
+}
+
+.date-selector {
+    display: flex;
+}
+
+select {
+    background-color: #010f20a3;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 20px;
+    width: 100%;
+}
+
+.validation-message {
+    color: #384e70;
+}

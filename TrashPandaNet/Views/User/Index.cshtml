@@ -1,0 +1,65 @@
+﻿@model UserViewModel
+
+@{
+    ViewData["Title"] = $"{Model.User.FullName}";
+    ViewData["IsOwnPage"] = Model.User.Email == User.Identity.Name;
+}
+
+@section css{
+    <link rel="stylesheet" href="~/css/user-page.css" />
+    <link rel="stylesheet" href="~/css/forms.css" />
+}
+
+<div class="wrapper">
+    <div class="user-left round-corners">
+        <div>
+            <div class="profile-pic" style="background-image: URL(@Model.User.Image)"></div>
+        </div>
+        @if ((bool)ViewData["IsOwnPage"])
+        {
+            <div>
+                <button class="button-secondary">
+                    <a asp-action="Edit" asp-controller="User">Редактировать</a>
+                </button>
+            </div>
+        }
+    </div>
+
+    <div class="user-right">
+        <div class="text-center">
+            <h1>@Model.User.FullName</h1>
+        </div>
+        <div class="profile-details round-corners">
+            <div>
+                <label>Статус: </label>
+                <span>@Model.User.Status</span>
+            </div>
+            <div>
+                <label>Дата прождения: </label>
+                <span>@Model.User.BirthDate</span>
+            </div>
+            <div>
+                <label>О себе: </label>
+                <span>@Model.User.About</span>
+            </div>
+            <div>
+                <label>Email: </label>
+                <span>@Model.User.Email</span>
+            </div>
+        </div>
+
+        <div class="user-friends round-corners">
+            <h2>Друзья</h2>
+            <div class="friend-search">
+                <partial name="_Search" />
+            </div>
+
+            <div class="friend-list">
+                @foreach (var friend in Model.Friends)
+                {
+                    <partial name="_Friend" model="friend" />
+                }
+            </div>
+        </div>
+    </div>
+</div>

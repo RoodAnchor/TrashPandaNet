@@ -1,0 +1,86 @@
+html {
+    font-size: 14px;
+    font-family: Tahoma;
+    position: relative;
+    min-height: 100%;
+}
+
+@media (min-width: 768px) {
+    html {
+        font-size: 16px;
+    }
+}
+
+a {
+    text-decoration: none;
+    color: lightgray;
+}
+
+a:hover {
+    text-decoration: none;
+    color: lightgray;
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+    box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+body {
+    margin-bottom: 60px;
+    background: rgb(15,34,51);
+    background: linear-gradient(45deg, rgb(7 16 24) 0%, rgba(16, 31, 59, 1) 65%, rgba(102, 13, 80, 1) 100%);
+    color: lightgray;
+}
+
+h1, h2, h3, h4 {
+    font-family: "RobotoBold";
+    color: white;
+}
+
+h1 {
+    color: #ff0068;
+}
+
+.round-corners {
+    background-color: #162b4e;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.text-right{
+    text-align: right;
+}
+
+.text-center {
+    text-align: center;
+}
+
+nav {
+    background-color: transparent;
+}
+
+.navbar-logo {
+    color: white;
+    font-size: 1.5rem;
+    text-decoration: none;
+    font-family: "RobotoBold";
+}
+
+.navbar-logo:hover {
+    color: white;
+}
+
+.no-default-style {
+    background: none;
+    border: none;
+}
+
+.sign-out-button:after {
+    font: normal normal normal 14px / 1 FontAwesomeSolid;
+    content: "\f2f5";
+    font-size: 2rem;
+    color: white;
+    position: relative;
+}

@@ -1,0 +1,30 @@
+﻿@model ChatViewModel
+
+<meta http-equiv="refresh" content="5">
+
+@section css {
+    <link rel="stylesheet" href="~/css/forms.css" />
+    <link rel="stylesheet" href="~/css/chat.css" />
+}
+
+<h1>Чат с @Model.Recipient.FirstName @Model.Recipient.LastName</h1>
+
+<div class="round-corners">
+    <div class="chat-messages">
+        @foreach (var message in Model.Messages)
+        {
+            var isAuthor = message.Sender.Email == User.Identity.Name;
+
+            <div class="chat-message @(isAuthor ? "push-right": null)">
+                <div class="message-text @(isAuthor ? "author-message": null)">@message.Text</div>
+            </div>
+        }
+    </div>
+
+    <div class="chat-controls">
+        <form asp-action="NewMessage" asp-controller="Chat" asp-route-id="@Model.Recipient.Id" method="post">
+            <input asp-for="NewMessage.Text" type="text">
+            <button class="button-primary">Отправить</button>
+        </form>
+    </div>
+</div>

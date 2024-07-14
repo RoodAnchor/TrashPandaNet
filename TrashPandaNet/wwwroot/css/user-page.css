@@ -1,0 +1,99 @@
+﻿.wrapper {
+    display: flex;
+}
+
+.user-left {
+    flex: 30%;
+    align-self: flex-start;
+}
+
+.user-right {
+    flex: 70%;
+    padding-left: 20px;
+}
+
+.friend-list {
+    margin-top: 20px;
+}
+
+.user-friend {
+    flex: 20%;
+    flex-grow: 0;
+    padding: 10px 0px;
+    display: flex;
+}
+
+.friend-search {
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    margin: 20px;
+}
+
+.friend-name {
+    margin: 0px 10px;
+}
+
+.user-friend > a {
+    display: flex;
+    align-items: center;
+}
+
+.profile-pic,
+.friend-pic {
+    height: 386px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 10px;
+}
+
+.friend-pic {
+    width: 50px;
+    height: 50px;
+    border-radius: 30px;
+    margin-bottom: 0px;
+}
+
+.user-friend-buttons {
+    font: normal normal normal 14px / 1 FontAwesomeSolid;
+    font-size: 1.5rem;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    flex: 1;
+    align-items: center;
+}
+
+.chat-button:after {
+    content: "\f27a";
+    color: #75839b;
+}
+
+.delete-friend-button:after {
+    content: "\e060";
+    color: #75839b;
+}
+
+.chat-button:hover:after {
+    color: #ff0068;
+}
+
+.delete-friend-button:hover:after {
+    color: #09131e;
+}
+
+label {
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+.friend-search a:after {
+    font: normal normal normal 14px / 1 FontAwesomeSolid;
+    content: "\f002";
+    margin-left: 10px;
+}
+
+.friend-search button {
+    margin-top: 0px;
+}

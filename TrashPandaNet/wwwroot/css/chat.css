@@ -1,0 +1,36 @@
+﻿.chat-controls {
+    margin-top: 20px;
+}
+
+.chat-controls form{
+    display: flex;
+}
+
+button{
+    margin-top: 0px !important;
+    flex: 1;
+    margin-left: 10px;
+}
+
+.push-right {
+    justify-content: end;
+}
+
+.chat-message {
+    display: flex;
+    margin-top: 10px;
+}
+
+.message-text {
+    background: #334d6c;
+    padding: 5px;
+    border-radius: 10px;
+}
+
+.author-message {
+    background: #091a30;
+}
+
+.message-sender {
+    margin-bottom: 10px;
+}

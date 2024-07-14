@@ -1,0 +1,57 @@
+﻿form{
+    display: flex;
+}
+
+button {
+    flex: 1;
+    margin-left: 10px;
+    margin-top: 0px !important
+        ;
+}
+
+.search-result-user{
+    display: flex;
+    align-items: center;
+    padding: 10px 0;
+}
+
+.user-pic {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 65px;
+    height: 65px;
+    border-radius: 40px;
+    margin-bottom: 0px;
+}
+
+.user-data div {
+    margin: 0px 10px
+}
+
+.user-status,
+.user-about {
+    color: gray;
+}
+
+.add-friend-button:after {
+    font: normal normal normal 14px / 1 FontAwesomeSolid;
+    font-size: 1.5rem;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    flex: 1;
+    align-items: center;
+    content: "\f2b5";
+    color: #75839b;
+}
+
+.add-friend-button:hover:after {
+    color: #ff0068;
+}
+
+.search-result-user-button {
+    flex: 1;
+    display: flex;
+    justify-content: right;
+}

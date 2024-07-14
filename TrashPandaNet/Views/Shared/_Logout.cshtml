@@ -1,0 +1,11 @@
+﻿@using Microsoft.AspNetCore.Identity;
+@using TrashPandaNet.Data.Models;
+@inject SignInManager<User> SignInManager
+@inject UserManager<User> UserManager
+
+@if (SignInManager.IsSignedIn(User))
+{
+    <form asp-action="Logout" asp-controller="AccountManager">
+        <button type="submit" class="no-default-style sign-out-button"></button>
+    </form>
+}

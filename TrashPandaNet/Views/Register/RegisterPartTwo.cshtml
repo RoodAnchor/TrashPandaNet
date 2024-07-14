@@ -1,0 +1,64 @@
+﻿@model RegisterViewModel
+@{
+    ViewData["Title"] = "Регистрация";
+}
+
+@section css{
+    <link rel="stylesheet" href="~/css/forms.css" />
+}
+
+<script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.17.0/jquery.validate.min.js"></script>
+<script src="https://ajax.aspnetcdn.com/ajax/jquery.validation.unobtrusive/3.2.10/jquery.validate.unobtrusive.min.js"></script>
+
+<h1>Регистрация нового пользователя</h1>
+
+<div class="round-corners">
+    <form method="post" asp-controller="Register" asp-action="Register">
+        <div asp-validation-summary="ModelOnly"></div>
+        <div>
+            <label asp-for="FirstName"></label>
+            <span asp-validation-for="FirstName" class="validation-message"></span>
+            <br />
+            <input asp-for="FirstName" required />
+        </div>
+        <div>
+            <label asp-for="LastName"></label>
+            <span asp-validation-for="LastName" class="validation-message"></span>
+            <br />
+            <input asp-for="LastName" required />
+        </div>
+        <div>
+            <label asp-for="MiddleName"></label>
+            <span asp-validation-for="MiddleName" class="validation-message"></span>
+            <br />
+            <input asp-for="MiddleName" required />
+        </div>
+        <div>
+            <label asp-for="EmailReg"></label>
+            <span asp-validation-for="EmailReg" class="validation-message"></span>
+            <br />
+            <input asp-for="EmailReg" required />
+        </div>
+        <div>
+            <label asp-for="BirthDate"></label>
+            <span asp-validation-for="BirthDate" class="validation-message"></span>
+            <br />
+            <input asp-for="BirthDate" type="date" />
+        </div>
+        <div>
+            <label asp-for="PasswordReg"></label>
+            <span asp-validation-for="PasswordReg" class="validation-message"></span>
+            <br />
+            <input asp-for="PasswordReg" />
+        </div>
+        <div>
+            <label asp-for="PasswordConfirm"></label>
+            <span asp-validation-for="PasswordConfirm" class="validation-message"></span>
+            <br />
+            <input asp-for="PasswordConfirm" />
+        </div>
+        <div>
+            <button class="button-primary" type="submit">Регистрация</button>
+        </div>
+    </form>
+</div>

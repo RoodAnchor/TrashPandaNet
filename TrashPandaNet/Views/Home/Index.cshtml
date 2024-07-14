@@ -1,0 +1,24 @@
+﻿@model HomeViewModel
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+@section css {
+    <link rel="stylesheet" href="~/css/main.css" />
+    <link rel="stylesheet" href="~/css/forms.css" />
+}
+
+<div class="row">
+    <div class="side">
+        <div class="center">
+            <h1>...StAy Tra$hy...</h1>
+        </div>
+        <img class="main-img" src="/img/trashPanda.png" />
+    </div>
+
+    <div class="main">
+        <partial name="_Login" model="Model.LoginViewModel" />
+        <partial name="_Register" model="Model.RegisterViewModel" />
+    </div>
+</div>

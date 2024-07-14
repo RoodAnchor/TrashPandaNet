@@ -1,0 +1,27 @@
+﻿@model TrashPandaNet.Data.Models.User
+
+<div class="user-friend">
+    <a asp-action="Index" asp-controller="User" asp-route-id="@Model.Id">
+        <div class="friend-pic" style="background-image: URL(@Model.Image)">
+        </div>
+        <span class="friend-name">
+            @Model.FullName
+        </span>
+    </a>
+
+    @if ((bool)ViewData["IsOwnPage"])
+    {
+        <div class="user-friend-buttons">
+            <div>
+                <form asp-action="Index" asp-controller="Chat" asp-route-id="@Model.Id" method="get">
+                    <button type="submit" class="no-default-style chat-button"></button>
+                </form>
+            </div>
+            <div>
+                <form asp-action="DeleteFriend" asp-controller="AccountManager" asp-route-id="@Model.Id">
+                    <button type="submit" class="no-default-style delete-friend-button"></button>
+                </form>
+            </div>
+        </div>
+    }
+</div>

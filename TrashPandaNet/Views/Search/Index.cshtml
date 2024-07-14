@@ -1,0 +1,56 @@
+﻿@model SearchViewModel
+
+@{
+    ViewData["Title"] = "Поиск пользователей";
+}
+
+@section css {
+    <link rel="stylesheet" href="~/css/forms.css" />
+    <link rel="stylesheet" href="~/css/search.css" />
+}
+
+<h1 class="text-center">Поиск друзей</h1>
+
+<div class="round-corners">
+    <form asp-action="Index" asp-controller="Search" method="post">
+        <input type="text" placeholder="Поиск" name="search">
+        <button type="submit" class="button-primary">Искать</button>
+    </form>
+
+    @if (Model.Users.Count == 0)
+    {
+        <div>
+            Мы никого не нашли...
+        </div>
+    }
+
+    <div class="search-result">
+        @foreach (var user in @Model.Users)
+        {
+            <div class="search-result-user">
+                <div class="user-pic" style="background-image: URL(@user.Image)">
+                </div>
+                <div class="user-data">
+                    <div class="user-name">
+                        @user.FullName
+                    </div>
+                    <div class="user-status">
+                        @user.Status
+                    </div>
+                    <div class="user-about">
+                        @user.About
+                    </div>
+                </div>
+
+                @if (!user.IsFriendWithCurrent)
+                {
+                    <div class="search-result-user-button">
+                        <form asp-action="AddFriend" asp-controller="AccountManager" asp-route-id="@user.Id" method="post">
+                            <button type="submit" class="no-default-style add-friend-button"></button>
+                        </form>
+                    </div>
+                }
+            </div>
+        }
+    </div>
+</div>

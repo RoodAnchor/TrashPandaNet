@@ -1,0 +1,87 @@
+﻿@model UserEditViewModel
+
+@{
+    ViewData["Title"] = "Редактирование профиля";
+}
+
+@section css {
+    <link rel="stylesheet" href="~/css/user-page.css" />
+    <link rel="stylesheet" href="~/css/forms.css" />
+}
+
+@section Scripts {
+    <script type="text/javascript" src="~/js/userEdit.js"></script>
+}
+
+<div class="wrapper">
+    <div class="user-left round-corners">
+        <div>
+            <div class="profile-pic" style="background-image: URL(@Model.Image)"></div>
+        </div>
+    </div>
+
+    <div class="user-right">
+        <div class="text-center">
+            <h1>Редактирование профиля</h1>
+        </div>
+        <div class="round-corners">
+            <form asp-action="Edit" asp-controller="User" method="post">
+                <div asp-validation-summary="ModelOnly"></div>
+                <div>
+                    <label asp-for="FirstName"></label>
+                    <span asp-validation-for="FirstName" class="validation-message"></span>
+                    <br />
+                    <input asp-for="FirstName" />
+                </div>
+                <div>
+                    <label asp-for="LastName"></label>
+                    <span asp-validation-for="LastName" class="validation-message"></span>
+                    <br />
+                    <input asp-for="LastName" />
+
+                </div>
+                <div>
+                    <label asp-for="MiddleName"></label>
+                    <span asp-validation-for="MiddleName" class="validation-message"></span>
+                    <br />
+                    <input asp-for="MiddleName" />
+
+                </div>
+                <div>
+                    <label asp-for="BirthDate"></label>
+                    <span asp-validation-for="BirthDate" class="validation-message"></span>
+                    <br />
+                    <input asp-for="BirthDate" type="date" />
+                </div>
+                <div>
+                    <label asp-for="Email"></label>
+                    <span asp-validation-for="Email" class="validation-message"></span>
+                    <br />
+                    <input asp-for="Email" />
+                </div>
+                <div>
+                    <label asp-for="Image"></label>
+                    <span asp-validation-for="Image" class="validation-message"></span>
+                    <br />
+                    <input asp-for="Image" onchange="updateImage(this);"/>
+                </div>
+                <div>
+                    <label asp-for="Status"></label>
+                    <span asp-validation-for="Status" class="validation-message"></span>
+                    <br />
+                    <input asp-for="Status" />
+                </div>
+                <div>
+                    <label asp-for="About"></label>
+                    <span asp-validation-for="About" class="validation-message"></span>
+                    <br />
+                    <input asp-for="About" />
+                </div>
+
+                <input asp-for="Id" readonly type="hidden" />
+
+                <button class="button-primary" type="submit">Сохранить</button>
+            </form>
+        </div>
+    </div>
+</div>
