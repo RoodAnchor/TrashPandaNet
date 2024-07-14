@@ -29,27 +29,9 @@
             <span asp-validation-for="LastName"></span>
         </div>
         <div>
-            <label>Дата рождения</label>
-            <div class="date-selector">
-                <span style="margin-right: 10px;">
-                    <select asp-for="Date" id="ddlDay" required>
-                        <option value="">@Model.Date</option>
-                    </select>
-                    <span asp-validation-for="Date" class="text-danger"></span>
-                </span>
-                <span style="flex: 1;">
-                    <select asp-for="Month" asp-items="monthList" onchange="PopulateDays()" id="ddlMonth" required>
-                        <option value="">@Model.Month</option>
-                    </select>
-                    <span asp-validation-for="Month" class="text-danger"></span>
-                </span>
-                <span style="margin-left: 10px;">
-                    <select asp-for="Year" asp-items="yearList" onchange="PopulateDays()" id="ddlYear" required>
-                        <option value="">@Model.Year</option>
-                    </select>
-                    <span asp-validation-for="Year" class="text-danger"></span>
-                </span>
-            </div>
+            <label asp-for="BirthDate">Дата рождения</label>
+            <input asp-for="BirthDate" type="date" required />
+            <span asp-validation-for="BirthDate"></span>
         </div>
 
         <div>
@@ -57,6 +39,3 @@
         </div>
     </form>
 </div>
-
-<script src="http://code.jquery.com/jquery-latest.js"></script>
-<script src="/js/datePicker.js"></script>

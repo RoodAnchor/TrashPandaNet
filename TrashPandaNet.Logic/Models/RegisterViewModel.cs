@@ -22,18 +22,6 @@ namespace TrashPandaNet.Logic.Models
         public string EmailReg { get; set; }
 
         [Required(ErrorMessage = "Это поле необходимо заполнить")]
-        [Display(Name = "Год")]
-        public int Year { get; set; }
-
-        [Required(ErrorMessage = "Это поле необходимо заполнить")]
-        [Display(Name = "День")]
-        public int Date { get; set; }
-
-        [Required(ErrorMessage = "Это поле необходимо заполнить")]
-        [Display(Name = "Месяц")]
-        public int Month { get; set; }
-
-        [Required(ErrorMessage = "Это поле необходимо заполнить")]
         [DataType(DataType.Password)]
         [Display(Name = "Пароль")]
         [StringLength(100, ErrorMessage = "Поле {0} должно иметь минимум {2} и максимум {1} символов.", MinimumLength = 5)]
@@ -49,9 +37,8 @@ namespace TrashPandaNet.Logic.Models
         [Display(Name = "Никнейм")]
         public string UserName => EmailReg;
 
-        public DateTime BirthDate
-        {
-            get => new DateTime(Year, Month, Date);
-        }
+        [Required(ErrorMessage = "Это поле необходимо заполнить")]
+        [Display(Name = "Дата рождения")]
+        public DateTime BirthDate { get; set; } = DateTime.Now.AddYears(-50);
     }
 }
