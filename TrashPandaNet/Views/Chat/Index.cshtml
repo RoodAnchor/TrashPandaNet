@@ -1,6 +1,6 @@
 ﻿@model ChatViewModel
 
-<meta http-equiv="refresh" content="5">
+<meta http-equiv="refresh" content="15">
 
 @section css {
     <link rel="stylesheet" href="~/css/forms.css" />
@@ -23,7 +23,7 @@
 
     <div class="chat-controls">
         <form asp-action="NewMessage" asp-controller="Chat" asp-route-id="@Model.Recipient.Id" method="post">
-            <input asp-for="NewMessage.Text" type="text">
+            <input asp-for="NewMessage.Text" type="text" required>
             <button class="button-primary">Отправить</button>
         </form>
     </div>
